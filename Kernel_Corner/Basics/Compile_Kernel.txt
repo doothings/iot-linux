@@ -1,9 +1,14 @@
 ###############################################################################################
 ##########			Compiling a Linux Kernel		             ##########
+#########									       ########
+########## Arun M Kumar					  arunkr.linux@gmail.com     ##########
 ###############################################################################################
+______________________________________________________________________________________________
+Last Edit:
+09 Sep 2013				Arun M Kumar			arunkr.linux@gmail.com
+-----------------------------------------------------------------------------------------------
 
-08 Sep 2013				Arun M Kumar			arun250691@gmail.com
-
+========================================== FAQ ==================================================
 
 Although heavily documented, I shall try to explain the Kernel Building procedures to the best of my understanding.
 This Doc shall help you Compile, Build and install a Custom kernel of your choice.
@@ -19,10 +24,10 @@ A : Feel Free to do so..
 
 Q3. I wanna know more.
 A : Google what you wanna know. I shall also post what i know.
-======== More to come ========
+==================================================================================================
 
 
-references:
+======================================== References ==============================================
 
 	web:
 		Kernelnewbies.org	(Highly recommended)
@@ -31,8 +36,10 @@ references:
 		Linux Kernel Development 3ed    - Robert Love	(Recomendded)
 		Understanding the inux Kernel	
 		Linux Device Drivers		- Greg Kroah Hartman	( intermediate level)
-		Linux Kernel ina nutshell	- Greg Kroah Hartman	(for newbies)
+		Linux Kernel in a nutshell	- Greg Kroah Hartman	( for newbies)
 		Embedded Linux Primer		- Christopher Hallinan	( Internediate level)
+
+==================================================================================================
 
 
 ##$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$    STEPS   $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
@@ -42,33 +49,34 @@ Step 0: Required Packages
 -> There is a list of tools that you would require to build and compile the source.
 
 	######## Ubuntu (Debian based system) #########
-The packages required are
+	The packages required are
 
-1. libncurses5-dev 
-2. gcc 
-3. make 
-4. git 
-5. exuberant-ctags
+	1. libncurses5-dev 
+	2. gcc 
+	3. make 
+	4. git 
+	5. exuberant-ctags
 
 For begginers run the following command ( on UBUNTU)
-$ sudo apt-get install libncurses5-dev gcc make git exuberant-ctags
+	$ sudo apt-get install libncurses5-dev gcc make git exuberant-ctags
 
 NOTE: based on your distribution you may need to use a different command, replace the 'apt-get' string with your package manager.
 
 
 	######## Red Hat based system ############
 
-The packages required are
+	The packages required are
 
-1. gcc 
-2. make 
-3. git 
-4. ctags ncurses-devel
+	1. gcc 
+	2. make 
+	3. git 
+	4. ctags ncurses-devel
 
 for begginers follow this ( On Fedora)
-$ sudo yum install gcc make git ctags ncurses-devel
+	$ sudo yum install gcc make git ctags ncurses-devel
+
 (on OpenSuSE)
-$ sudo zypper install gcc make git ctags ncurses-devel
+	$ sudo zypper install gcc make git ctags ncurses-devel
 
 
 You shall be installing this packages as root, as otherwise its not allowed,
@@ -83,19 +91,19 @@ DONT DO IT.
 
 Step 1: Download the Source Tarball
 
--> A tarball is a compressed directory (read .zip/ .rar file) containing data.
--> A Source Tarball as the name suggests would give out source code when uncompressed.
--> You can also clone the existing git repository.
--> Cloning a GIT Repository (almost 1 GB, based on your internet speed this may take time)
-   shall give you all the files of the kernel with their history.
+	-> A tarball is a compressed directory (read .zip/ .rar file) containing data.
+	-> A Source Tarball as the name suggests would give out source code when uncompressed.
+	-> You can also clone the existing git repository.
+	-> Cloning a GIT Repository (almost 1 GB, based on your internet speed this may take time)
+   		shall give you all the files of the kernel with their history.
 
 
 	######## To download a tarball ########
 
-1. go to http://kernel.org
-2. choose the kernel version you want to download.
-3. Latest is not always the best, I would suggest Kernel Version 2.6, 3.4, 3.9. I hav efound them much easy to work with.
-4. After you download the tarball, extract it
+	1. go to http://kernel.org	
+	2. choose the kernel version you want to download.
+	3. Latest is not always the best, I would suggest Kernel Version 2.6, 3.4, 3.9. I hav efound them much easy to work with.
+	4. After you download the tarball, extract it
 	if the tarball is in the .tar.xz format use the following command
 		$ tar -x <Tar File name>
 
@@ -108,10 +116,10 @@ Step 1: Download the Source Tarball
 
 	####### To clone the repository ########
 
-1. Go the the directory where you do your development work.
-   I prefer /home/<your-uname>/Development/Linux_Kernel/
-2. Run this command (NOT AS ROOT)
-   git clone git://git.kernel.org/pub/scm/linux/kernel/git/stable/linux-stable.git
+	1. Go the the directory where you do your development work.
+   		I prefer /home/<your-uname>/Development/Linux_Kernel/
+	2. Run this command (NOT AS ROOT)
+   		$ git clone git://git.kernel.org/pub/scm/linux/kernel/git/stable/linux-stable.git
 	
  NOTE: This can take a lot of time as there are more than 3300000 objects to be cloned,with a 280KB/s connection
        it took me around an hour and a half.
@@ -245,3 +253,4 @@ Step 3. Reboot.
 
 Step 4. Choose your kernel and boot it.
 
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
