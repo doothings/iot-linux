@@ -6,7 +6,8 @@
 ______________________________________________________________________________________________
 Last Edit:
 09 Sep 2013				Arun M Kumar			arunkr.linux@gmail.com
------------------------------------------------------------------------------------------------
+______________________________________________________________________________________________
+# Typos are regretted.
 
 ========================================== FAQ ==================================================
 
@@ -210,9 +211,9 @@ Step 2. Getting the kernel Ready.
 					in the old configuration files, and those shall be handled accordingly.
 					The Kernel Build system handes it pretty well too.
 					
-				Q. But i need all the current features.
-				A: A very practica and justified request.
-					The answer is even more simple. Copy the configuration fiel of the kernel that you
+				Q. But i need all the current features. Give them to me !
+				A: A very practical and justified request.
+					The answer is even more straightforward . Copy the configuration file of the kernel that you
 					are currently running.
 				
 					the current config file can be found in 
