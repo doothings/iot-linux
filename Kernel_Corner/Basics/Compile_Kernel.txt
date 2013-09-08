@@ -163,7 +163,7 @@ Step 2. Getting the kernel Ready.
 				once this is done the remaining steps are the same.
 	 
  		
-		1. Execute this command
+	3. Execute these commands
 			
 
 			$ make mrproper				<---- more details to be added ---->
