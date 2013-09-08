@@ -184,8 +184,58 @@ Step 2. Getting the kernel Ready.
 				you can also give custom configuration. more on that later.
 
 				$ make --help (for more such options)
+				
+				Q. Wil this affect the functionality in any way?
+				A: It will surely, based on the configuration many faccilities may
+				   be turned on/off in the kernel.
+				   To have a look at the settings that have been selected run this command and look around.
 
-		
+				   $ make menuconfig
+
+				   NOTE: Dont edit the file named '.config' using any text editor unless you know all the 
+					dependencies of the kernel configurations.
+					edit the configuration only through a configuration editor only.
+					menuconfig, gconfig etc. are some examples.
+
+				  	once you finish this process, you shall have a .config file. Its a Hiddeb file.
+			          	back it up, if you want to preserve configuration in mutiple kernel builds.
+				
+
+					Dont forget to validate your config file against the current kernel
+					run this command
+
+					$ make oldconfig
+						This command verifies the config file against the current kernel source.
+					some features may have been removed in the new kernel, while its config parameters remain
+					in the old configuration files, and those shall be handled accordingly.
+					The Kernel Build system handes it pretty well too.
+					
+				Q. But i need all the current features.
+				A: A very practica and justified request.
+					The answer is even more simple. Copy the configuration fiel of the kernel that you
+					are currently running.
+				
+					the current config file can be found in 
+					
+					/lib/modules/`uname -r`/build/
+				
+					the config file is a hidden file and thus shall not be available if you run the 'ls' utility.
+					
+					$ ls -a
+						This will show you the .config file, copy it to the directory where you have your kernel
+					source (GIT or Extracted Tarball).
+					
+					$ uname -r 
+						This command gives the current kernel version and thus have been included in the path.
+											
+					The Directory named 'build' is a Symbolic link to the actual Source code.
+
+					if the difference between the Kernel version of the running kernel and the kernel 
+					version you wish to install is huge, i strongly suggest
+					
+					$ make oldconfig
+
+
 			$ make
 				or
 
@@ -197,7 +247,7 @@ Step 2. Getting the kernel Ready.
 				This will launch the kernel build process.
 				as you have provided the default configuration, this should not take much time.
 
-				Q: what is n?
+				Q: what is this 'n' here?
 				A: number of jobs (not steve jobs' family members ;P ).
 				   To maximise the throughput during the build, we put 2 jobs on each CPU.
 					
@@ -213,39 +263,41 @@ Step 2. Getting the kernel Ready.
 				but you now know what command to give when you have multiple cores.
 				nothing to worry about, modern CPUs handle these loads pretty well.
 
-			NOTE: ALthough this build shall finish in say 25 min on a Quad core.
-			      It can take almost 40 min to an hour on a single core machine.
-			      The CPU will clock at 100% during the entire buid, so i suggest deferring 
-			      CPU intensive work during the process. (facebook is fine, have a sandwich,
-			      do your laundry, whatever, you shoud leave the build alone)
+				NOTE: ALthough this build shall finish in say 25 min on a Quad core.
+			      	It can take almost 40 min to an hour on a single core machine.
+			     	The CPU will clock at 100% during the entire buid, so i suggest deferring 
+			      	CPU intensive work during the process. (facebook is fine, have a sandwich,
+			      	do your laundry, whatever, you shoud leave the build alone)
 				
 				Its not RAM Intensive, but have atleast 2GB for decent performance.
 
-			     Keep AMD based systems ventilated, i have seen them soaring to great temp.
-			     My Friends Laptop Shutdown during this process, due to heat generated.
+			     	Keep AMD based systems ventilated, i have seen them soaring to great temp.
+			     	My Friends Laptop Shutdown during this process, due to heat generated.
+			     	AMD is not to be blamed here, his HP laptop had bad vents and would heat up like
+			     	anything.
 			
-			     your fan might speed up,but dont worry these hardware problems are rare,
-			     just keep the laptop ventlated and you should be fine.
-			     needless to say, Desktops are best place for a build.
+				your fan might speed up,but dont worry these hardware problems are rare,
+			     	just keep the laptop ventlated and you should be fine.
+			     	needless to say, Desktops are best place for a build.
 
 		
 		$ make modules_install				<---- seperate document proposed ---->
-				
-			     your modules have compiled, now lets install them into the kernel image.
-			     by the time you finish this you will have a Kernel Image at your hand.
-			     all you need to do is install it into the appropriate directory.
+						
+			     	your modules have compiled, now lets install them into the kernel image.
+			     	by the time you finish this you will have a Kernel Image at your hand.
+			     	all you need to do is install it into the appropriate directory.
 
 
 		$ make install					<----- more details to be added ---->
 
-			    This shall copy the images and the system map files in to appropriate directories.
-			    have a look at /boot. you will see new entries there.
+			    	This shall copy the images and the system map files in to appropriate directories.
+			    	have a look at /boot. you will see new entries there.
 				
 
 
 		< Bootloader Issues>
-			    if you are using GRUB then this shall not be required.
-			    Sadly i have no experience with this either, so i textless as of now.
+			    	if you are using GRUB2 / GRUB1 then this shall not be required.
+			    	Sadly i have no experience with this either, so i textless as of now.
 
 
 
