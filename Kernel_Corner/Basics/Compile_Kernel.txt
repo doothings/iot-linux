@@ -298,7 +298,7 @@ Step 2. Getting the kernel Ready.
 
 		< Bootloader Issues>
 			    	if you are using GRUB2 / GRUB1 then this shall not be required.
-			    	Sadly i have no experience with this either, so i textless as of now.
+			    	Sadly i have no experience with this either, so i am textless as of now.
 
 
 
